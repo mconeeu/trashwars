@@ -1,0 +1,5 @@
+name: MCONE-Trashwars
+authors: [Marvin Hülsmann, Dominik Lippl]
+version: ${project.version}
+main: eu.mcone.trashwars.TrashWars
+depend: [MCONE-BukkitCoreSystem, MCONE-GameAPI]
