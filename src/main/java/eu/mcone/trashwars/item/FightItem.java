@@ -28,7 +28,7 @@ public enum FightItem {
     //Axes
     GOLD_AXE(Level.USUAL, new ItemBuilder(Material.GOLD_AXE, 1).enchantment(Enchantment.DURABILITY, 2).displayName("§3Goldaxt").create()),
     GOLD_AXE_2(Level.UNUSUAL, new ItemBuilder(Material.GOLD_AXE, 1).enchantment(Enchantment.KNOCKBACK, 2).enchantment(Enchantment.DAMAGE_ALL, 1).displayName("§3Goldaxt").create()),
-    DIAMOND_AXE(Level.UNUSUAL, new ItemBuilder(Material.DIAMOND_AXE, 1).displayName("§3Diamantaxt").create()),
+    DIAMOND_AXE(Level.EPIC, new ItemBuilder(Material.DIAMOND_AXE, 1).displayName("§3Diamantaxt").create()),
     STONE_AXE_2(Level.USUAL, new ItemBuilder(Material.STONE_AXE, 1).enchantment(Enchantment.DURABILITY, 1).displayName("§3Steinaxt").create()),
 
 
@@ -38,12 +38,12 @@ public enum FightItem {
 
 
     //Helmet
-    DIAMOND_HELMET(Level.EPIC, new ItemBuilder(Material.DIAMOND_HELMET, 1).displayName("§3Diamanthelm").create()),
+    DIAMOND_HELMET(Level.LEGENDARY, new ItemBuilder(Material.DIAMOND_HELMET, 1).displayName("§3Diamanthelm").create()),
     DIAMOND_HELMET_1(Level.LEGENDARY, new ItemBuilder(Material.DIAMOND_HELMET, 1).enchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 2).displayName("§3Diamanthelm").create()),
     DIAMOND_HELMET_2(Level.MYSTICAL, new ItemBuilder(Material.DIAMOND_HELMET, 1).enchantment(Enchantment.PROTECTION_EXPLOSIONS, 1).displayName("§3Diamanthelm").create()),
     GOLD_HELMET(Level.EPIC, new ItemBuilder(Material.GOLD_HELMET, 1).displayName("§3Goldhelm").create()),
     GOLD_HELMET_1(Level.LEGENDARY, new ItemBuilder(Material.GOLD_HELMET, 1).enchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 1).displayName("§3Goldhelm").create()),
-    GOLD_HELMET_2(Level.MYSTICAL, new ItemBuilder(Material.GOLD_HELMET, 1).enchantment(Enchantment.PROTECTION_FIRE, 1).displayName("§3Goldhelm").create()),
+    GOLD_HELMET_2(Level.EPIC, new ItemBuilder(Material.GOLD_HELMET, 1).enchantment(Enchantment.PROTECTION_FIRE, 1).displayName("§3Goldhelm").create()),
     CHAINMAIL_HELMET(Level.USUAL, new ItemBuilder(Material.CHAINMAIL_HELMET, 1).enchantment(Enchantment.THORNS, 1).displayName("§3Kettenhelm").create()),
     CHAINMAIL_HELMET_1(Level.UNUSUAL, new ItemBuilder(Material.CHAINMAIL_HELMET, 1).enchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 1).displayName("§3Kettenhelm").create()),
     CHAINMAIL_HELMET_2(Level.EPIC, new ItemBuilder(Material.CHAINMAIL_HELMET, 1).enchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 1).enchantment(Enchantment.PROTECTION_FIRE, 1).displayName("§3Kettenhelm").create()),
@@ -52,14 +52,14 @@ public enum FightItem {
     LEATHER_HELMET_2(Level.UNUSUAL, new ItemBuilder(Material.LEATHER_HELMET, 1).enchantment(Enchantment.PROTECTION_FIRE, 1).displayName("§3Lederhelm").create()),
 
     //Chestplates
-    DIAMOND_CHESTPLATE(Level.MYSTICAL, new ItemBuilder(Material.DIAMOND_CHESTPLATE, 1).displayName("§3Diamantbrutsplatte").create()),
+    DIAMOND_CHESTPLATE(Level.EPIC, new ItemBuilder(Material.DIAMOND_CHESTPLATE, 1).displayName("§3Diamantbrutsplatte").create()),
     DIAMOND_CHESTPLATE_1(Level.MYSTICAL, new ItemBuilder(Material.DIAMOND_CHESTPLATE, 1).enchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 1).displayName("§3Diamantbrutsplatte").create()),
     DIAMOND_CHESTPLATE_2(Level.MYSTICAL, new ItemBuilder(Material.DIAMOND_CHESTPLATE, 1).enchantment(Enchantment.PROTECTION_FIRE, 1).displayName("§3Diamantbrutsplatte").create()),
     CHAINMAIL_CHESTPLATE(Level.UNUSUAL, new ItemBuilder(Material.CHAINMAIL_CHESTPLATE, 1).displayName("§3Kettenbrutsplatte").create()),
-    CHAINMAIL_CHESTPLATE_1(Level.EPIC, new ItemBuilder(Material.CHAINMAIL_CHESTPLATE, 1).enchantment(Enchantment.PROTECTION_FIRE, 1).displayName("§3Kettenbrutsplatte").create()),
+    CHAINMAIL_CHESTPLATE_1(Level.UNUSUAL, new ItemBuilder(Material.CHAINMAIL_CHESTPLATE, 1).enchantment(Enchantment.PROTECTION_FIRE, 1).displayName("§3Kettenbrutsplatte").create()),
     CHAINMAIL_CHESTPLATE_2(Level.LEGENDARY, new ItemBuilder(Material.CHAINMAIL_CHESTPLATE, 1).enchantment(Enchantment.PROTECTION_EXPLOSIONS, 2).displayName("§3Kettenbrutsplatte").create()),
     LEATHER_CHESTPLATE(Level.USUAL, new ItemBuilder(Material.LEATHER_CHESTPLATE, 1).displayName("§3Lederbrutsplatte").create()),
-    LEATHER_CHESTPLATE_1(Level.UNUSUAL, new ItemBuilder(Material.LEATHER_CHESTPLATE, 1).enchantment(Enchantment.PROTECTION_PROJECTILE, 1).displayName("§3Lederbrutsplatte").create()),
+    LEATHER_CHESTPLATE_1(Level.USUAL, new ItemBuilder(Material.LEATHER_CHESTPLATE, 1).enchantment(Enchantment.PROTECTION_PROJECTILE, 1).displayName("§3Lederbrutsplatte").create()),
     LEATHER_CHESTPLATE_2(Level.EPIC, new ItemBuilder(Material.LEATHER_CHESTPLATE, 1).enchantment(Enchantment.PROTECTION_FIRE, 1).displayName("§3Lederbrutsplatte").create()),
     GOLD_CHESTPLATE(Level.UNUSUAL, new ItemBuilder(Material.GOLD_CHESTPLATE, 1).displayName("§3Goldbrutsplatte").create()),
     GOLD_CHESTPLATE_1(Level.EPIC, new ItemBuilder(Material.GOLD_CHESTPLATE, 1).enchantment(Enchantment.PROTECTION_FIRE, 1).displayName("§3Goldbrutsplatte").create()),
@@ -154,14 +154,14 @@ public enum FightItem {
     REGENERATION_1(Level.MYSTICAL, new ItemBuilder(Material.POTION, 3, 10).displayName("§3Regeneration").create()),
 
     //Pickaxes
-    STONE_PICKAXE(Level.UNUSUAL, new ItemBuilder(Material.STONE_PICKAXE, 1).displayName("§7Steinspitzhacke").create()),
-    STONE_PICKAXE_1(Level.MYSTICAL, new ItemBuilder(Material.STONE_PICKAXE, 1).enchantment(Enchantment.DAMAGE_ALL, 2).displayName("§7Steinspitzhacke").create()),
+    STONE_PICKAXE(Level.USUAL, new ItemBuilder(Material.STONE_PICKAXE, 1).displayName("§7Steinspitzhacke").create()),
+    STONE_PICKAXE_1(Level.UNUSUAL, new ItemBuilder(Material.STONE_PICKAXE, 1).enchantment(Enchantment.DAMAGE_ALL, 2).displayName("§7Steinspitzhacke").create()),
     GOLD_PICKAXE(Level.EPIC, new ItemBuilder(Material.GOLD_PICKAXE, 1).displayName("§6Goldspitzhacke").create()),
-    GOLD_PICKAXE_1(Level.LEGENDARY, new ItemBuilder(Material.GOLD_PICKAXE, 1).enchantment(Enchantment.DIG_SPEED, 1).displayName("§6Goldspitzhacke").create()),
+    GOLD_PICKAXE_1(Level.EPIC, new ItemBuilder(Material.GOLD_PICKAXE, 1).enchantment(Enchantment.DIG_SPEED, 1).displayName("§6Goldspitzhacke").create()),
     IRON_PICKAXE(Level.USUAL, new ItemBuilder(Material.IRON_PICKAXE, 1).displayName("§fEisenspitzhacke").create()),
     IRON_PICKAXE_1(Level.UNUSUAL, new ItemBuilder(Material.IRON_PICKAXE, 1).enchantment(Enchantment.DIG_SPEED, 2).displayName("§fEisenspitzhacke").create()),
     DIAMOND_PICKAXE(Level.LEGENDARY, new ItemBuilder(Material.DIAMOND_PICKAXE, 1).displayName("§3Diamantspitzhacke").create()),
-    DIAMOND_PICKAXE_1(Level.MYSTICAL, new ItemBuilder(Material.DIAMOND_PICKAXE, 1).enchantment(Enchantment.DIG_SPEED, 2).displayName("§3Diamantspitzhacke").create());
+    DIAMOND_PICKAXE_1(Level.LEGENDARY, new ItemBuilder(Material.DIAMOND_PICKAXE, 1).enchantment(Enchantment.DIG_SPEED, 2).displayName("§3Diamantspitzhacke").create());
 
     private final ItemStack itemStack;
     private Level level;

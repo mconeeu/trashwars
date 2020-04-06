@@ -3,6 +3,7 @@ package eu.mcone.trashwars.state;
 import eu.mcone.coresystem.api.bukkit.CoreSystem;
 import eu.mcone.coresystem.api.bukkit.item.ItemBuilder;
 import eu.mcone.coresystem.api.bukkit.player.CorePlayer;
+import eu.mcone.coresystem.api.bukkit.util.CoreTitle;
 import eu.mcone.gameapi.api.event.gamestate.GameStateStartEvent;
 import eu.mcone.gameapi.api.event.gamestate.GameStateStopEvent;
 import eu.mcone.gameapi.api.player.GamePlayer;
@@ -25,6 +26,9 @@ import org.bukkit.scoreboard.DisplaySlot;
 
 public class InGameState extends eu.mcone.gameapi.api.gamestate.common.InGameState {
 
+    private static final CoreTitle COUNT_1 = CoreSystem.getInstance().createTitle().fadeIn(1).fadeOut(1).title("§a1").subTitle("").stay(2);
+    private static final CoreTitle COUNT_2 = CoreSystem.getInstance().createTitle().fadeIn(1).fadeOut(1).title("§a2").subTitle("").stay(2);
+    private static final CoreTitle COUNT_3 = CoreSystem.getInstance().createTitle().fadeIn(1).fadeOut(1).title("§a3").subTitle("").stay(2);
 
     @Override
     public void onStart(GameStateStartEvent event) {
@@ -36,13 +40,13 @@ public class InGameState extends eu.mcone.gameapi.api.gamestate.common.InGameSta
                 if (gamePlayer.getCurrentKit().equals(Kit.FAULTIER)) {
                     run(player, time);
                 } else {
-                    CoreSystem.getInstance().createTitle().fadeIn(1).fadeOut(1).title("§a3").subTitle(null).stay(2).send(player);
+                    COUNT_3.send(player);
                     player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, Integer.MAX_VALUE, 2), true);
                     Bukkit.getScheduler().runTaskLater(TrashWars.getInstance(), () -> {
-                        CoreSystem.getInstance().createTitle().fadeIn(1).fadeOut(1).title("§a2").subTitle(null).stay(2).send(player);
+                        COUNT_2.send(player);
 
                         Bukkit.getScheduler().runTaskLater(TrashWars.getInstance(), () -> {
-                            CoreSystem.getInstance().createTitle().fadeIn(1).fadeOut(1).title("§a1").subTitle(null).stay(1).send(player);
+                            COUNT_1.send(player);
                             Bukkit.getScheduler().runTaskLater(TrashWars.getInstance(), () -> {
                                 run(player, time);
                             }, 20);

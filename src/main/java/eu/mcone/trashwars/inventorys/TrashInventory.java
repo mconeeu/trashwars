@@ -3,6 +3,7 @@ package eu.mcone.trashwars.inventorys;
 import eu.mcone.coresystem.api.bukkit.inventory.CoreInventory;
 import eu.mcone.coresystem.api.bukkit.inventory.InventoryOption;
 import eu.mcone.coresystem.api.bukkit.inventory.InventorySlot;
+import eu.mcone.gameapi.api.backpack.Level;
 import eu.mcone.trashwars.item.FightItem;
 import eu.mcone.trashwars.item.TrashItem;
 import org.bukkit.entity.Player;
@@ -11,14 +12,13 @@ import java.util.*;
 
 public class TrashInventory extends CoreInventory {
 
-    private static final int FIGHT_ITEM_COUNT = 9;
-
-    private final static List<FightItem> FIGHT_ITEMS = new ArrayList<>();
+    private static final int FIGHT_ITEM_COUNT = 12;
+    private static final List<FightItem> FIGHT_ITEMS = new ArrayList<>();
 
     static {
         for (FightItem item : FightItem.values()) {
-            for (int i = 0; i < (FightItem.values().length - item.getLevel().ordinal()); i++) {
-                System.out.println("ADD: " + item.getItemStack().getItemMeta().getDisplayName() + " " + item.getLevel());
+
+            for (int i = 0; i < (Level.values().length - item.getLevel().ordinal()); i++) {
                 FIGHT_ITEMS.add(item);
             }
         }

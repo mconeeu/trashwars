@@ -20,7 +20,7 @@ public class LobbyObjective extends CoreSidebarObjective {
         setDisplayName("§7§l⚔ §a§l§nTrashwars");
 
         setScore(4, "");
-        setScore(3, "§8» §7Wartende Spieler:");
+        setScore(3, "§8➥ §7Wartende Spieler:");
         onReload(corePlayer);
         setScore(1, "");
         setScore(0, " §f§lMCONE.EU");
