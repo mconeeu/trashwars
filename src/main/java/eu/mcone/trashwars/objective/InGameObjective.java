@@ -15,17 +15,20 @@ public class InGameObjective extends CoreSidebarObjective {
         GamePlayer gamePlayer = TrashWars.getInstance().getGamePlayer(corePlayer.getUuid());
         setDisplayName("§7§l⚔ §a§l§nTrashwars");
 
+        setScore(13, "");
+        setScore(12, "§8» §7Team:");
+        setScore(11, "   §f§l" + gamePlayer.getTeam().getTeam().getPrefix());
         setScore(10, "");
-        setScore(9, "§8» §7Team:");
-        setScore(8, "   §f§l" + gamePlayer.getTeam().getTeam().getPrefix());
+        setScore(9, "§8» §7Lebene Spieler:");
+        setScore(8, "   §f§l" + TrashWars.getInstance().getPlayerManager().getPlaying().size());
         setScore(7, "");
         setScore(6, "§8» §7Kills:");
         setScore(5, "   §f§l" + gamePlayer.getRoundKills());
         setScore(4, "");
-        setScore(3, "§8» §7Lebene Spieler:");
-        setScore(2, "   §f§l" + TrashWars.getInstance().getPlayerManager().getPlaying().size());
+        setScore(3, "§8» §7Kit:");
+        setScore(2, "   §f§l" + gamePlayer.getCurrentKit().getName());
         setScore(1, "");
-        setScore(0, " §c§lMCONE.EU");
+        setScore(0, " §f§lMCONE.EU");
     }
 
     @Override

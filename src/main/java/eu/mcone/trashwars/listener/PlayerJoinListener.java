@@ -5,9 +5,11 @@ import eu.mcone.coresystem.api.bukkit.item.ItemBuilder;
 import eu.mcone.coresystem.api.bukkit.player.CorePlayer;
 import eu.mcone.gameapi.api.backpack.BackpackItem;
 import eu.mcone.gameapi.api.event.player.GamePlayerLoadedEvent;
+import eu.mcone.gameapi.api.player.GamePlayer;
 import eu.mcone.gameapi.api.player.PlayerManager;
 import eu.mcone.gameapi.api.team.TeamManager;
 import eu.mcone.trashwars.TrashWars;
+import eu.mcone.trashwars.kit.Kit;
 import eu.mcone.trashwars.objective.LobbyObjective;
 import eu.mcone.trashwars.state.EndState;
 import eu.mcone.trashwars.state.InGameState;
@@ -18,6 +20,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scoreboard.DisplaySlot;
 
 public class PlayerJoinListener implements Listener {
@@ -25,6 +28,9 @@ public class PlayerJoinListener implements Listener {
     @EventHandler
     public void on(GamePlayerLoadedEvent e) {
         Player player = e.getBukkitPlayer();
+        GamePlayer gamePlayer = TrashWars.getInstance().getGamePlayer(player);
+
+        gamePlayer.buyKit(Kit.DEFAULT);
 
         player.setGameMode(GameMode.SURVIVAL);
 
@@ -32,7 +38,9 @@ public class PlayerJoinListener implements Listener {
         player.getInventory().setArmorContents(null);
         player.setHealth(20);
         player.setFoodLevel(20);
-
+        player.setLevel(0);
+        player.setExp(0);
+        player.removePotionEffect(PotionEffectType.SLOW);
 
         player.getInventory().setItem(8, InventoryTriggerListener.QUIT_ITEM);
         player.getInventory().setItem(6, InventoryTriggerListener.KITS);
@@ -42,7 +50,8 @@ public class PlayerJoinListener implements Listener {
             e.getCorePlayer().getScoreboard().setNewObjective(new LobbyObjective());
 
             for (CorePlayer all : CoreSystem.getInstance().getOnlineCorePlayers()) {
-                all.getScoreboard().getObjective(DisplaySlot.SIDEBAR).reload();
+                if (!all.equals(e.getCorePlayer()))
+                    all.getScoreboard().getObjective(DisplaySlot.SIDEBAR).reload();
             }
 
             player.getInventory().setItem(7, TeamManager.TEAM);

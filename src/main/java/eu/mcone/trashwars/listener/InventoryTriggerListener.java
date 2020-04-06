@@ -5,6 +5,7 @@ import eu.mcone.gameapi.api.backpack.Category;
 import eu.mcone.gameapi.api.backpack.defaults.DefaultCategory;
 import eu.mcone.gameapi.api.gamestate.common.EndGameState;
 import eu.mcone.trashwars.TrashWars;
+import eu.mcone.trashwars.state.EndState;
 import eu.mcone.trashwars.state.LobbyState;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -29,15 +30,14 @@ public class InventoryTriggerListener implements Listener {
                 return;
 
             if (TrashWars.getInstance().getGameStateManager().getRunning() instanceof LobbyState
-                    || TrashWars.getInstance().getGameStateManager().getRunning() instanceof EndGameState) {
+                    || TrashWars.getInstance().getGameStateManager().getRunning() instanceof EndState) {
                 if (itemStack.getType().equals(Material.IRON_DOOR)) {
                     player.performCommand("hub");
                 } else if (e.getItem().getItemMeta().getDisplayName().equalsIgnoreCase("§3§lRucksack §8» §7§oZeige deine gesammelten Items an")) {
                     e.setCancelled(true);
                     TrashWars.getInstance().getBackpackManager().openBackpackInventory(DefaultCategory.GADGET.name(), player);
                 } else if (itemStack.getType().equals(Material.CHEST)) {
-                    //TODO Kits adden
-                    //TrashWars.getInstance().getKitManager().openKitsInventory();
+                    TrashWars.getInstance().getKitManager().openKitsInventory(player, player::closeInventory);
                 }
 
                 e.setCancelled(true);

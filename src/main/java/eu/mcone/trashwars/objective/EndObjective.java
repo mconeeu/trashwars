@@ -16,24 +16,20 @@ public class EndObjective extends CoreSidebarObjective {
         GamePlayer gamePlayer = TrashWars.getInstance().getGamePlayer(corePlayer.getUuid());
         setDisplayName("§7§l⚔ §a§l§nTrashwars");
 
-        setScore(10, "");
-        setScore(9, "§8» §7Team:");
-        setScore(8, "   §f§l" + gamePlayer.getTeam().getTeam().getPrefix());
         setScore(7, "");
-        setScore(6, "§8» §7Kills:");
-        setScore(5, "   §f§l" + gamePlayer.getRoundKills());
+        setScore(6, "§8» §7Team:");
+        setScore(5, "   §f§l" + gamePlayer.getTeam().getTeam().getPrefix());
         setScore(4, "");
-        setScore(3, "§8» §7Lebene Spieler:");
-        setScore(2, "   §f§l" + TrashWars.getInstance().getPlayerManager().getPlaying().size());
+        setScore(3, "§8» §7Kills:");
+        setScore(2, "   §f§l" + gamePlayer.getRoundKills());
         setScore(1, "");
-        setScore(0, " §c§lMCONE.EU");
+        setScore(0, " §f§lMCONE.EU");
     }
 
     @Override
     protected void onReload(CorePlayer corePlayer) {
         GamePlayer gamePlayer = TrashWars.getInstance().getGamePlayer(corePlayer.getUuid());
-        setScore(5, "   §f§l" + gamePlayer.getRoundKills());
-        setScore(2, "   §f§l" + TrashWars.getInstance().getPlayerManager().getPlaying().size());
+        setScore(2, "   §f§l" + gamePlayer.getRoundKills());
     }
 }
 

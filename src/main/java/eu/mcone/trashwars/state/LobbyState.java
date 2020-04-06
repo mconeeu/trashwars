@@ -9,6 +9,7 @@ import eu.mcone.gameapi.api.gamestate.common.LobbyGameState;
 import eu.mcone.gameapi.api.player.GamePlayer;
 import eu.mcone.gameapi.api.team.TeamTablist;
 import eu.mcone.trashwars.TrashWars;
+import eu.mcone.trashwars.kit.Kit;
 import eu.mcone.trashwars.objective.InGameObjective;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
@@ -19,27 +20,33 @@ public class LobbyState extends LobbyGameState {
     @Override
     public void onStop(GameStateStopEvent event) {
         for (Player player : TrashWars.getInstance().getPlayerManager().getPlaying()) {
+
             GamePlayer gamePlayer = TrashWars.getInstance().getGamePlayer(player);
             CorePlayer corePlayer = CoreSystem.getInstance().getCorePlayer(player.getUniqueId());
             player.teleport(TrashWars.getInstance().getGameWorld().getLocation(gamePlayer.getTeam().getSpawnLocation()));
             corePlayer.setScoreboard(new TeamTablist());
             corePlayer.getScoreboard().setNewObjective(new InGameObjective());
+            player.getInventory().clear();
 
+            if (gamePlayer.getCurrentKit().equals(Kit.DEFAULT)) {
+                gamePlayer.setKit(Kit.DEFAULT);
+            } else if (gamePlayer.getCurrentKit().equals(Kit.FAULTIER)) {
+                gamePlayer.setKit(Kit.FAULTIER);
+            } else if (gamePlayer.getCurrentKit().equals(Kit.ASSASINE)) {
+                gamePlayer.setKit(Kit.ASSASINE);
+            }
 
-
-
-
-
-
-           }
+        }
     }
 
     @Override
     public void onCountdownSecond(CorePlugin plugin, int second) {
         super.onCountdownSecond(plugin, second);
-
-        if (second == 5) {
-            TrashWars.getInstance().getTeamManager().setupTeam();
+        for (Player player : TrashWars.getInstance().getPlayerManager().getPlaying()) {
+            GamePlayer gamePlayer = TrashWars.getInstance().getGamePlayer(player);
+            if (second == 5) {
+                TrashWars.getInstance().getTeamManager().setupTeam();
+            }
         }
     }
 }

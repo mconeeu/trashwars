@@ -1,7 +1,7 @@
 package eu.mcone.trashwars.listener;
 
-import eu.mcone.gameapi.api.gamestate.common.EndGameState;
 import eu.mcone.trashwars.TrashWars;
+import eu.mcone.trashwars.state.EndState;
 import eu.mcone.trashwars.state.LobbyState;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -15,7 +15,7 @@ public class EntityDamageByEntityListener implements Listener {
         if (e.getEntity() instanceof Player) {
             Player player = (Player) e.getEntity();
             if (TrashWars.getInstance().getGameStateManager().getRunning() instanceof LobbyState
-                    || TrashWars.getInstance().getGameStateManager().getRunning() instanceof EndGameState) {
+                    || TrashWars.getInstance().getGameStateManager().getRunning() instanceof EndState) {
                 e.setCancelled(true);
             }
         } else {
