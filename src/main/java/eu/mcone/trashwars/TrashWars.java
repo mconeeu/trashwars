@@ -5,6 +5,7 @@ import eu.mcone.coresystem.api.bukkit.CoreSystem;
 import eu.mcone.coresystem.api.bukkit.world.CoreWorld;
 import eu.mcone.gameapi.api.GamePlugin;
 import eu.mcone.gameapi.api.Option;
+import eu.mcone.gameapi.api.backpack.defaults.DefaultItem;
 import eu.mcone.gameapi.api.gamestate.common.InGameState;
 import eu.mcone.trashwars.commands.TrashWarsCMD;
 import eu.mcone.trashwars.listener.*;
@@ -35,6 +36,10 @@ public class TrashWars extends GamePlugin {
         getDamageLogger();
         getTeamManager().useTeamChat(true);
         getKitManager();
+        getBackpackManager();
+        getBackpackManager().setItemSlot(0);
+        getBackpackManager().setFallbackSlot(0);
+        getBackpackManager().disableItem(DefaultItem.COINBOMB);
 
         startScheduler();
 
