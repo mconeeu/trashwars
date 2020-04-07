@@ -28,7 +28,8 @@ public enum TrashItem {
     TRASH_12(new ItemBuilder(Material.SPONGE, 1).displayName("§fTrash").create()),
     TRASH_13(new ItemBuilder(Material.RABBIT_STEW, 3).displayName("§fTrash").create()),
     TRASH_14(new ItemBuilder(Material.VINE, 2).displayName("§fTrash").create()),
-    TRASH_15(new ItemBuilder(Material.BRICK, 8).displayName("§fTrash").create());
+    TRASH_15(new ItemBuilder(Material.WORKBENCH, 1).displayName("§fTrash").create()),
+    TRASH_16(new ItemBuilder(Material.BRICK, 8).displayName("§fTrash").create());
 
 
     private final ItemStack itemStack;

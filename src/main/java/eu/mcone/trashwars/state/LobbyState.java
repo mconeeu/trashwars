@@ -35,7 +35,6 @@ public class LobbyState extends LobbyGameState {
             } else if (gamePlayer.getCurrentKit().equals(Kit.ASSASINE)) {
                 gamePlayer.setKit(Kit.ASSASINE);
             }
-
         }
     }
 

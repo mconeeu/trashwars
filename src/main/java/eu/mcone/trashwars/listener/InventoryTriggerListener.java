@@ -17,8 +17,8 @@ import org.bukkit.inventory.ItemStack;
 
 public class InventoryTriggerListener implements Listener {
 
-    public static final ItemStack QUIT_ITEM = new ItemBuilder(Material.IRON_DOOR, 1, 0).displayName("§4§lVerlassem §8» §7§overlasse die Spielrunde.").create();
-    public static final ItemStack KITS = new ItemBuilder(Material.CHEST, 1, 0).displayName("§f§lKits §8» §7§owähle dir dein Kit aus.").create();
+    public static final ItemStack QUIT_ITEM = new ItemBuilder(Material.SLIME_BALL, 1, 0).displayName("§c§lLobby §8» §7§osendet dich zu Lobby zurück").create();
+    public static final ItemStack KITS = new ItemBuilder(Material.CHEST, 1, 0).displayName("§c§lTemporärekits §8» §7§okaufe dir hier dein Temporäres Ingame Kit.").create();
 
     @EventHandler
     public void on(PlayerInteractEvent e) {

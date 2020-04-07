@@ -12,7 +12,7 @@ import java.util.*;
 
 public class TrashInventory extends CoreInventory {
 
-    private static final int FIGHT_ITEM_COUNT = 12;
+    private static final int FIGHT_ITEM_COUNT = 11;
     private static final List<FightItem> FIGHT_ITEMS = new ArrayList<>();
 
     static {

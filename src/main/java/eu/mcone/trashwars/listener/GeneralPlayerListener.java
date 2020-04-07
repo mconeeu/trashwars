@@ -15,6 +15,7 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.player.PlayerAchievementAwardedEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerItemDamageEvent;
 import org.bukkit.event.player.PlayerPickupItemEvent;
@@ -31,6 +32,12 @@ public class GeneralPlayerListener implements Listener {
                 && !player.getGameMode().equals(GameMode.CREATIVE)) {
             e.setCancelled(true);
         }
+    }
+
+    @EventHandler
+    public void onAchiewment(PlayerAchievementAwardedEvent e) {
+        Player player = e.getPlayer();
+        e.setCancelled(true);
     }
 
     @EventHandler
