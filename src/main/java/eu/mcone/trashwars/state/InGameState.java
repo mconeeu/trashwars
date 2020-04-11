@@ -30,6 +30,10 @@ public class InGameState extends eu.mcone.gameapi.api.gamestate.common.InGameSta
     private static final CoreTitle COUNT_2 = CoreSystem.getInstance().createTitle().fadeIn(1).fadeOut(1).title("§a2").subTitle("").stay(2);
     private static final CoreTitle COUNT_3 = CoreSystem.getInstance().createTitle().fadeIn(1).fadeOut(1).title("§a3").subTitle("").stay(2);
 
+    public InGameState(int timeout) {
+        super(timeout);
+    }
+
     @Override
     public void onStart(GameStateStartEvent event) {
         Bukkit.getScheduler().runTaskLater(TrashWars.getInstance(), () -> {

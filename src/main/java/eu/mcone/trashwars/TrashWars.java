@@ -28,7 +28,8 @@ public class TrashWars extends GamePlugin {
                 Option.BACKPACK_MANAGER_REGISTER_EXCLUSIVE_CATEGORY,
                 Option.BACKPACK_MANAGER_USE_RANK_BOOTS,
                 Option.KIT_MANAGER_APPLY_KITS_ONCE,
-                Option.TEAM_MANAGER_EXIT_BY_SINGLE_DEATH
+                Option.TEAM_MANAGER_EXIT_BY_SINGLE_DEATH,
+                Option.USE_SEASON_TIMEOUT
         );
     }
 
@@ -41,7 +42,7 @@ public class TrashWars extends GamePlugin {
     public void onGameEnable() {
         instance = this;
         sendConsoleMessage("§aInitializing new GameState Handler...");
-        getGameStateManager().addGameStateFirst(new LobbyState()).addGameState(new InGameState()).addGameState(new EndState()).startGame();
+        getGameStateManager().addGameStateFirst(new LobbyState()).addGameState(new InGameState(60 * 45)).addGameState(new EndState()).startGame();
         getPlayerManager();
         getDamageLogger();
         getTeamManager().useTeamChat(true);
