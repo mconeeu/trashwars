@@ -35,7 +35,7 @@ public class GeneralPlayerListener implements Listener {
     }
 
     @EventHandler
-    public void onAchiewment(PlayerAchievementAwardedEvent e) {
+    public void onAchievementAward(PlayerAchievementAwardedEvent e) {
         Player player = e.getPlayer();
         e.setCancelled(true);
     }

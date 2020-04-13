@@ -31,7 +31,7 @@ public class PlayerDeathListener implements Listener {
 
         if (TrashWars.getInstance().getGameStateManager().getRunning() instanceof LobbyState
                 || TrashWars.getInstance().getGameStateManager().getRunning() instanceof EndState) {
-            CoreSystem.getInstance().getWorldManager().getWorld(TrashWars.getInstance().getGameConfig().parseConfig().getLobby()).getLocation("spawn");
+            CoreSystem.getInstance().getWorldManager().getWorld(TrashWars.getInstance().getGameConfig().parseConfig().getLobby()).teleport(player, "spawn");
         } else {
             GamePlayer gamePlayer = TrashWars.getInstance().getGamePlayer(player);
             gamePlayer.addDeaths(1);
