@@ -15,7 +15,7 @@ public class LobbyObjective extends eu.mcone.gameapi.api.scoreboard.LobbyObjecti
         setDisplayName("§7§l⚔ §a§l§nTrashwars");
 
         setScore(3, "");
-        setScore(2, "§8➥ §7Wartende Spieler:");
+        setScore(2, "§8» §7Wartende Spieler:");
         onReload(corePlayer);
     }
 
