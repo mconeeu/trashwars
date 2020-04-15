@@ -92,6 +92,54 @@ public class Kit {
             100
     );
 
+    public static final eu.mcone.gameapi.api.kit.Kit FISHER = new eu.mcone.gameapi.api.kit.Kit(
+            "Fischer-Kit",
+            new ItemBuilder(Material.WEB)
+                    .displayName("§6Fischer-Kit")
+                    .lore(
+                            "",
+                            "§7§oMit diesem Kit erhälst du:",
+                            "§8» §6Holz Schwert",
+                            "§8» §664x Steinblöcke",
+                            "§8» §61x Enterhacken",
+                            "§8» §632 Fische",
+                            "",
+                            "§7§oFähigkeit:",
+                            "§8» §6Du kannst dich mit deiner Angel einmal zu Blöcken herranziehen",
+                            "",
+                            "§7Kosten: §f120 Coins",
+                            "§c§oDu erhälst das Kit nur einmal!"
+                    )
+                    .create(),
+            new HashMap<Integer, ItemStack>() {{
+
+                put(PlayerInventorySlot.HOTBAR_SLOT_1, new ItemBuilder(Material.STONE_SWORD)
+                        .displayName("§8» §b§lHolz Schwert")
+                        .lore("§6§oFischer-Kit")
+                        .enchantment(Enchantment.DAMAGE_ALL, 2)
+                        .unbreakable(true)
+                        .itemFlags(ItemFlag.HIDE_UNBREAKABLE)
+                        .create()
+                );
+                put(PlayerInventorySlot.HOTBAR_SLOT_3, new ItemBuilder(Material.FISHING_ROD, 1)
+                        .displayName("§8» §d§lEnterhacken")
+                        .lore("§6§oFischer-Kit")
+                        .create()
+                );
+                put(PlayerInventorySlot.HOTBAR_SLOT_2, new ItemBuilder(Material.STONE, 64)
+                        .displayName("§8» §d§lStein")
+                        .lore("§6§oFischer-Kit")
+                        .create()
+                );
+                put(PlayerInventorySlot.HOTBAR_SLOT_4, new ItemBuilder(Material.RAW_FISH, 32)
+                        .displayName("§8» §d§lFisch")
+                        .lore("§6§oFischer-Kit")
+                        .create()
+                );
+            }},
+            120
+    );
+
     public static final eu.mcone.gameapi.api.kit.Kit FAULTIER = new eu.mcone.gameapi.api.kit.Kit(
             "Faultier-Kit",
             new ItemBuilder(Material.WEB)
@@ -137,6 +185,6 @@ public class Kit {
                         .create()
                 );
             }},
-            100
+            120
     );
 }
