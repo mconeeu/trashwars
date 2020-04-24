@@ -33,7 +33,7 @@ public class GameDrawListener implements Listener {
             all.getInventory().setArmorContents(new ItemStack[0]);
             all.getActivePotionEffects().clear();
             all.playSound(all.getLocation(), Sound.FIREWORK_BLAST, 1, 1);
-            TrashWars.getInstance().getMessager().send(all, "§7Team " + e.getTeam().getTeam().getPrefix() + " §7hat das Spiel gewonnen!");
+            TrashWars.getInstance().getMessenger().send(all, "§7Team " + e.getTeam().getPrefix() + " §7hat das Spiel gewonnen!");
             CoreSystem.getInstance().getWorldManager().getWorld(TrashWars.getInstance().getGameConfig().parseConfig().getLobby()).teleport(all, "spawn");
             all.playSound(all.getLocation(), Sound.ENDERDRAGON_DEATH, 1, 1);
             all.setHealth(20);

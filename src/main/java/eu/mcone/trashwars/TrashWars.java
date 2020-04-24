@@ -45,7 +45,7 @@ public class TrashWars extends GamePlugin {
         getGameStateManager().addGameStateFirst(new LobbyState()).addGameState(new InGameState(60 * 45)).addGameState(new EndState()).startGame();
         getPlayerManager();
         getDamageLogger();
-        getTeamManager().useTeamChat(true);
+
         getKitManager().registerKits(Kit.DEFAULT, Kit.FAULTIER, Kit.ASSASINE);
         getBackpackManager();
         getBackpackManager().setItemSlot(0);

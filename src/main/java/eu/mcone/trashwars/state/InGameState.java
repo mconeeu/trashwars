@@ -39,7 +39,7 @@ public class InGameState extends eu.mcone.gameapi.api.gamestate.common.InGameSta
         Bukkit.getScheduler().runTaskLater(TrashWars.getInstance(), () -> {
             for (GamePlayer gamePlayer : TrashWars.getInstance().getOnlineGamePlayers()) {
                 Player player = gamePlayer.bukkit();
-                TrashWars.getInstance().getMessager().send(player, "§7Die Ausrüstungsphase hat nun gestartet!");
+                TrashWars.getInstance().getMessenger().send(player, "§7Die Ausrüstungsphase hat nun gestartet!");
                 int time = (gamePlayer.getCurrentKit().equals(Kit.FAULTIER) ? 50 : 40);
 
                 if (gamePlayer.getCurrentKit().equals(Kit.FAULTIER)) {
@@ -78,7 +78,7 @@ public class InGameState extends eu.mcone.gameapi.api.gamestate.common.InGameSta
                         Bukkit.getScheduler().runTaskLater(TrashWars.getInstance(), () -> {
                             player.closeInventory();
                             player.removePotionEffect(PotionEffectType.SLOW);
-                            TrashWars.getInstance().getMessager().send(player, "§7Die Kampfphase hat nun gestartet!");
+                            TrashWars.getInstance().getMessenger().send(player, "§7Die Kampfphase hat nun gestartet!");
                         }, time);
                     }, time);
                 }, time);
