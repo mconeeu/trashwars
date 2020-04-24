@@ -35,7 +35,7 @@ public class GeneralPlayerListener implements Listener {
     }
 
     @EventHandler
-    public void onAchiewment(PlayerAchievementAwardedEvent e) {
+    public void onAchievementAward(PlayerAchievementAwardedEvent e) {
         Player player = e.getPlayer();
         e.setCancelled(true);
     }
@@ -49,11 +49,6 @@ public class GeneralPlayerListener implements Listener {
                 || TrashWars.getInstance().getGameStateManager().getRunning() instanceof EndState)
                 && !player.getGameMode().equals(GameMode.CREATIVE)) {
             e.setCancelled(true);
-        } else if (block.getType().equals(Material.TNT)) {
-            block.setType(Material.AIR);
-            player.playSound(player.getLocation(), Sound.NOTE_BASS, 1, 1);
-            TNTPrimed tnt = player.getWorld().spawn(block.getLocation(), TNTPrimed.class);
-            tnt.setFuseTicks(50);
         }
     }
 
