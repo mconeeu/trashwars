@@ -19,7 +19,7 @@ public class EndObjective extends EndGameObjective {
 
         setScore(6, "");
         setScore(5, "§8» §7Team:");
-        setScore(4, "   §f§l" + gamePlayer.getTeam().getTeam().getPrefix());
+        setScore(4, "   §f§l" + gamePlayer.getTeam().getPrefix());
         setScore(3, "");
         setScore(2, "§8» §7Kills:");
         onReload(corePlayer);

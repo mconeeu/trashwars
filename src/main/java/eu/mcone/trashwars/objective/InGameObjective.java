@@ -19,7 +19,7 @@ public class InGameObjective extends eu.mcone.gameapi.api.scoreboard.InGameObjec
 
         setScore(12, "");
         setScore(11, "§8» §7Team:");
-        setScore(10, "   §f§l" + gamePlayer.getTeam().getTeam().getPrefix());
+        setScore(10, "   §f§l" + gamePlayer.getTeam().getPrefix());
         setScore(9, "");
         setScore(8, "§8» §7Lebene Spieler:");
         setScore(6, "");

@@ -14,7 +14,7 @@ public class EndState extends EndGameState {
     public void onStop(GameStateStopEvent event) {
         super.onStop(event);
         for (Player player : Bukkit.getOnlinePlayers()) {
-            TrashWars.getInstance().getMessager().send(player, "§7Der Server startet nun neu...");
+            TrashWars.getInstance().getMessenger().send(player, "§7Der Server startet nun neu...");
         }
 
         Bukkit.getServer().reload();
