@@ -18,12 +18,12 @@ public class Kit {
                     .lore(
                             "",
                             "§7§oMit diesem Kit erhälst du:",
-                            "§8» §7Stein Schwert",
-                            "§8» §764x Stein",
-                            "§8» §764x Bruchstein",
+                            "§8» §6Stein Schwert",
+                            "§8» §664x Stein",
+                            "§8» §664x Bruchstein",
                             "",
                             "§7Kosten: §f0 Coins",
-                            "§c§oDu erhälst das Kit nur einmal!"
+                            "§c§oDu hast dieses Kit immer!"
                     )
                     .itemFlags(ItemFlag.HIDE_ATTRIBUTES)
                     .create(),
@@ -94,7 +94,7 @@ public class Kit {
 
     public static final eu.mcone.gameapi.api.kit.Kit FISHER = new eu.mcone.gameapi.api.kit.Kit(
             "Fischer-Kit",
-            new ItemBuilder(Material.WEB)
+            new ItemBuilder(Material.FISHING_ROD)
                     .displayName("§6Fischer-Kit")
                     .lore(
                             "",

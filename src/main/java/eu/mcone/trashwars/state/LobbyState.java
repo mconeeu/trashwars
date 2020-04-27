@@ -7,7 +7,6 @@ import eu.mcone.coresystem.api.bukkit.player.CorePlayer;
 import eu.mcone.gameapi.api.event.gamestate.GameStateStopEvent;
 import eu.mcone.gameapi.api.gamestate.common.LobbyGameState;
 import eu.mcone.gameapi.api.player.GamePlayer;
-import eu.mcone.gameapi.api.team.TeamTablist;
 import eu.mcone.trashwars.TrashWars;
 import eu.mcone.trashwars.kit.Kit;
 import eu.mcone.trashwars.objective.InGameObjective;
@@ -24,7 +23,6 @@ public class LobbyState extends LobbyGameState {
             GamePlayer gamePlayer = TrashWars.getInstance().getGamePlayer(player);
             CorePlayer corePlayer = CoreSystem.getInstance().getCorePlayer(player.getUniqueId());
             player.teleport(TrashWars.getInstance().getGameWorld().getLocation(gamePlayer.getTeam().getSpawnLocation()));
-            corePlayer.setScoreboard(new TeamTablist());
             corePlayer.getScoreboard().setNewObjective(new InGameObjective());
             player.getInventory().clear();
 

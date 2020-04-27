@@ -46,7 +46,7 @@ public class TrashWars extends GamePlugin {
         getPlayerManager();
         getDamageLogger();
 
-        getKitManager().registerKits(Kit.DEFAULT, Kit.FAULTIER, Kit.ASSASINE);
+        getKitManager().registerKits(Kit.DEFAULT, Kit.FISHER, Kit.FAULTIER, Kit.ASSASINE);
         getBackpackManager();
         getBackpackManager().setItemSlot(0);
         getBackpackManager().setFallbackSlot(0);

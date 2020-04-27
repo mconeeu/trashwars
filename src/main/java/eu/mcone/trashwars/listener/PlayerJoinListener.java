@@ -28,9 +28,9 @@ public class PlayerJoinListener implements Listener {
     @EventHandler
     public void on(GamePlayerLoadedEvent e) {
         Player player = e.getBukkitPlayer();
-        GamePlayer gamePlayer = TrashWars.getInstance().getGamePlayer(player);
+        GamePlayer gamePlayer = e.getPlayer();
 
-        gamePlayer.buyKit(Kit.DEFAULT);
+        gamePlayer.setKit(Kit.DEFAULT);
 
         player.setGameMode(GameMode.SURVIVAL);
 

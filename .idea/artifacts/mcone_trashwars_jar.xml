@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" build-on-make="true" name="mcone-trashwars:jar">
-    <output-path>$PROJECT_DIR$/../../Servers/Minecraft/Test-Single</output-path>
-    <root id="archive" name="mcone-trashwars.jar">
-      <element id="module-output" name="mcone-trashwars" />
-    </root>
-  </artifact>
-</component>
