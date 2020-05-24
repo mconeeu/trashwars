@@ -1,30 +1,23 @@
 package eu.mcone.trashwars.state;
 
 import eu.mcone.coresystem.api.bukkit.CoreSystem;
-import eu.mcone.coresystem.api.bukkit.item.ItemBuilder;
-import eu.mcone.coresystem.api.bukkit.player.CorePlayer;
 import eu.mcone.coresystem.api.bukkit.util.CoreTitle;
 import eu.mcone.gameapi.api.event.gamestate.GameStateStartEvent;
-import eu.mcone.gameapi.api.event.gamestate.GameStateStopEvent;
 import eu.mcone.gameapi.api.player.GamePlayer;
-import eu.mcone.gameapi.api.player.PlayerManager;
-import eu.mcone.gameapi.api.team.TeamManager;
 import eu.mcone.trashwars.TrashWars;
 import eu.mcone.trashwars.inventorys.TrashInventory;
-import eu.mcone.trashwars.item.TrashItem;
 import eu.mcone.trashwars.kit.Kit;
-import eu.mcone.trashwars.listener.InventoryTriggerListener;
-import eu.mcone.trashwars.objective.LobbyObjective;
-import lombok.Getter;
+import eu.mcone.trashwars.objective.InGameObjective;
 import org.bukkit.Bukkit;
-import org.bukkit.GameMode;
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
-import org.bukkit.scoreboard.DisplaySlot;
 
 public class InGameState extends eu.mcone.gameapi.api.gamestate.common.InGameState {
+
+    static {
+        setObjective(InGameObjective.class);
+    }
 
     private static final CoreTitle COUNT_1 = CoreSystem.getInstance().createTitle().fadeIn(1).fadeOut(1).title("§a1").subTitle("").stay(2);
     private static final CoreTitle COUNT_2 = CoreSystem.getInstance().createTitle().fadeIn(1).fadeOut(1).title("§a2").subTitle("").stay(2);

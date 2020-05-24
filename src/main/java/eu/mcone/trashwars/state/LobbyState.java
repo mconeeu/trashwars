@@ -2,23 +2,26 @@ package eu.mcone.trashwars.state;
 
 import eu.mcone.coresystem.api.bukkit.CorePlugin;
 import eu.mcone.coresystem.api.bukkit.CoreSystem;
-import eu.mcone.coresystem.api.bukkit.item.ItemBuilder;
 import eu.mcone.coresystem.api.bukkit.player.CorePlayer;
 import eu.mcone.gameapi.api.event.gamestate.GameStateStopEvent;
 import eu.mcone.gameapi.api.gamestate.common.LobbyGameState;
 import eu.mcone.gameapi.api.player.GamePlayer;
+import eu.mcone.gameapi.api.player.GamePlayerState;
 import eu.mcone.trashwars.TrashWars;
 import eu.mcone.trashwars.kit.Kit;
 import eu.mcone.trashwars.objective.InGameObjective;
-import org.bukkit.Material;
-import org.bukkit.enchantments.Enchantment;
+import eu.mcone.trashwars.objective.LobbyObjective;
 import org.bukkit.entity.Player;
 
 public class LobbyState extends LobbyGameState {
 
+    static {
+        setObjective(LobbyObjective.class);
+    }
+
     @Override
     public void onStop(GameStateStopEvent event) {
-        for (Player player : TrashWars.getInstance().getPlayerManager().getPlaying()) {
+        for (Player player : TrashWars.getInstance().getPlayerManager().getPlayers(GamePlayerState.PLAYING)) {
 
             GamePlayer gamePlayer = TrashWars.getInstance().getGamePlayer(player);
             CorePlayer corePlayer = CoreSystem.getInstance().getCorePlayer(player.getUniqueId());
@@ -41,11 +44,9 @@ public class LobbyState extends LobbyGameState {
     @Override
     public void onCountdownSecond(CorePlugin plugin, int second) {
         super.onCountdownSecond(plugin, second);
-        for (Player player : TrashWars.getInstance().getPlayerManager().getPlaying()) {
-            GamePlayer gamePlayer = TrashWars.getInstance().getGamePlayer(player);
-            if (second == 5) {
-                TrashWars.getInstance().getTeamManager().setupTeam();
-            }
+
+        if (second == 5) {
+            TrashWars.getInstance().getTeamManager().setTeamsForRemainingPlayersBalanced();
         }
     }
 }

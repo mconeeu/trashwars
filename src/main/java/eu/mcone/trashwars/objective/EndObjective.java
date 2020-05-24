@@ -1,16 +1,11 @@
 package eu.mcone.trashwars.objective;
 
 import eu.mcone.coresystem.api.bukkit.player.CorePlayer;
-import eu.mcone.coresystem.api.bukkit.scoreboard.CoreSidebarObjective;
 import eu.mcone.gameapi.api.player.GamePlayer;
-import eu.mcone.gameapi.api.scoreboard.EndGameObjective;
+import eu.mcone.gameapi.api.scoreboard.LobbyObjective;
 import eu.mcone.trashwars.TrashWars;
 
-public class EndObjective extends EndGameObjective {
-
-    public EndObjective() {
-        super("Trashwars");
-    }
+public class EndObjective extends LobbyObjective {
 
     @Override
     protected void onRegister(CorePlayer corePlayer) {
@@ -19,7 +14,7 @@ public class EndObjective extends EndGameObjective {
 
         setScore(6, "");
         setScore(5, "§8» §7Team:");
-        setScore(4, "   §f§l" + gamePlayer.getTeam().getPrefix());
+        setScore(4, "   §f§l" + gamePlayer.getTeam().getLabel());
         setScore(3, "");
         setScore(2, "§8» §7Kills:");
         onReload(corePlayer);

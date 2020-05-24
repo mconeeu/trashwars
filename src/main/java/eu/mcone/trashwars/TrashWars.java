@@ -1,6 +1,7 @@
 package eu.mcone.trashwars;
 
 import eu.mcone.coresystem.api.bukkit.CoreSystem;
+import eu.mcone.coresystem.api.bukkit.gamemode.Gamemode;
 import eu.mcone.coresystem.api.bukkit.world.CoreWorld;
 import eu.mcone.gameapi.api.GamePlugin;
 import eu.mcone.gameapi.api.Option;
@@ -12,14 +13,12 @@ import eu.mcone.trashwars.state.EndState;
 import eu.mcone.trashwars.state.InGameState;
 import eu.mcone.trashwars.state.LobbyState;
 import lombok.Getter;
-import org.bukkit.ChatColor;
 
 public class TrashWars extends GamePlugin {
 
     public TrashWars() {
         super(
-                "TrashWars",
-                ChatColor.GREEN,
+                Gamemode.TRASHWARS,
                 "trashwars.prefix",
                 Option.BACKPACK_MANAGER_REGISTER_GADGET_CATEGORY,
                 Option.BACKPACK_MANAGER_REGISTER_OUTFIT_CATEGORY,
@@ -28,8 +27,8 @@ public class TrashWars extends GamePlugin {
                 Option.BACKPACK_MANAGER_REGISTER_EXCLUSIVE_CATEGORY,
                 Option.BACKPACK_MANAGER_USE_RANK_BOOTS,
                 Option.KIT_MANAGER_APPLY_KITS_ONCE,
-                Option.TEAM_MANAGER_EXIT_BY_SINGLE_DEATH,
-                Option.USE_SEASON_TIMEOUT
+                Option.TEAM_MANAGER_DISABLE_RESPAWN,
+                Option.TEAM_MANAGER_USE_DEFAULT_TEAMS
         );
     }
 
@@ -42,8 +41,13 @@ public class TrashWars extends GamePlugin {
     public void onGameEnable() {
         instance = this;
         sendConsoleMessage("§aInitializing new GameState Handler...");
-        getGameStateManager().addGameStateFirst(new LobbyState()).addGameState(new InGameState(60 * 45)).addGameState(new EndState()).startGame();
+        getGameStateManager()
+                .addGameState(new LobbyState())
+                .addGameState(new InGameState(60 * 45))
+                .addGameState(new EndState())
+                .startGame();
         getPlayerManager();
+        getTeamManager();
         getDamageLogger();
 
         getKitManager().registerKits(Kit.DEFAULT, Kit.FISHER, Kit.FAULTIER, Kit.ASSASINE);
@@ -54,25 +58,22 @@ public class TrashWars extends GamePlugin {
 
         gameWorld = CoreSystem.getInstance().getWorldManager().getWorld(getGameConfig().parseConfig().getGameWorld());
 
-
         registerEvents(
                 new GeneralPlayerListener(),
                 new PlayerJoinListener(),
                 new PlayerQuitListener(),
-                new TeamWonListener(),
+                new GameEndListener(),
                 new InventoryTriggerListener(),
                 new EntityDamageListener(),
                 new EntityDamageByEntityListener(),
                 new PlayerDeathListener()
         );
 
-
         registerCommands(
                 new TrashWarsCMD()
         );
 
         sendConsoleMessage("§aVersion §f" + this.getDescription().getVersion() + "§a enabled...");
-
     }
 
 

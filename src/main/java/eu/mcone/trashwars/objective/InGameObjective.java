@@ -1,14 +1,11 @@
 package eu.mcone.trashwars.objective;
 
 import eu.mcone.coresystem.api.bukkit.player.CorePlayer;
-import eu.mcone.coresystem.api.bukkit.scoreboard.CoreSidebarObjective;
 import eu.mcone.gameapi.api.player.GamePlayer;
+import eu.mcone.gameapi.api.player.GamePlayerState;
 import eu.mcone.trashwars.TrashWars;
 
 public class InGameObjective extends eu.mcone.gameapi.api.scoreboard.InGameObjective {
-    public InGameObjective() {
-        super("Trashwars");
-    }
 
     @Override
     protected void onRegister(CorePlayer corePlayer) {
@@ -19,7 +16,7 @@ public class InGameObjective extends eu.mcone.gameapi.api.scoreboard.InGameObjec
 
         setScore(12, "");
         setScore(11, "§8» §7Team:");
-        setScore(10, "   §f§l" + gamePlayer.getTeam().getPrefix());
+        setScore(10, "   §f§l" + gamePlayer.getTeam().getLabel());
         setScore(9, "");
         setScore(8, "§8» §7Lebene Spieler:");
         setScore(6, "");
@@ -33,6 +30,6 @@ public class InGameObjective extends eu.mcone.gameapi.api.scoreboard.InGameObjec
     protected void onReload(CorePlayer corePlayer) {
         GamePlayer gamePlayer = TrashWars.getInstance().getGamePlayer(corePlayer.getUuid());
         setScore(4, "   §f§l" + gamePlayer.getRoundKills());
-        setScore(7, "   §f§l" + TrashWars.getInstance().getPlayerManager().getPlaying().size());
+        setScore(7, "   §f§l" + TrashWars.getInstance().getPlayerManager().getPlayers(GamePlayerState.PLAYING).size());
     }
 }

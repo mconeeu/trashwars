@@ -5,11 +5,6 @@ import org.bukkit.Bukkit;
 
 public class LobbyObjective extends eu.mcone.gameapi.api.scoreboard.LobbyObjective {
 
-    public LobbyObjective() {
-        super("Trashwars");
-    }
-
-
     @Override
     protected void onRegister(CorePlayer corePlayer) {
         setDisplayName("§7§l⚔ §a§l§nTrashwars");
