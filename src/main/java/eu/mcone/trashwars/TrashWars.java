@@ -27,8 +27,7 @@ public class TrashWars extends GamePlugin {
                 Option.BACKPACK_MANAGER_REGISTER_EXCLUSIVE_CATEGORY,
                 Option.BACKPACK_MANAGER_USE_RANK_BOOTS,
                 Option.KIT_MANAGER_APPLY_KITS_ONCE,
-                Option.TEAM_MANAGER_DISABLE_RESPAWN,
-                Option.TEAM_MANAGER_USE_DEFAULT_TEAMS
+                Option.TEAM_MANAGER_DISABLE_RESPAWN
         );
     }
 
@@ -47,7 +46,7 @@ public class TrashWars extends GamePlugin {
                 .addGameState(new EndState())
                 .startGame();
         getPlayerManager();
-        getTeamManager();
+        getTeamManager().loadDefaultTeams();
         getDamageLogger();
 
         getKitManager().registerKits(Kit.DEFAULT, Kit.FISHER, Kit.FAULTIER, Kit.ASSASINE);

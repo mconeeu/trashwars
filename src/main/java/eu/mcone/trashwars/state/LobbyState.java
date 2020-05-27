@@ -26,7 +26,6 @@ public class LobbyState extends LobbyGameState {
             GamePlayer gamePlayer = TrashWars.getInstance().getGamePlayer(player);
             CorePlayer corePlayer = CoreSystem.getInstance().getCorePlayer(player.getUniqueId());
             player.teleport(TrashWars.getInstance().getGameWorld().getLocation(gamePlayer.getTeam().getSpawnLocation()));
-            corePlayer.getScoreboard().setNewObjective(new InGameObjective());
             player.getInventory().clear();
 
             if (gamePlayer.getCurrentKit().equals(Kit.DEFAULT)) {
@@ -38,6 +37,8 @@ public class LobbyState extends LobbyGameState {
             } else if (gamePlayer.getCurrentKit().equals(Kit.FISHER)) {
                 gamePlayer.setKit(Kit.FISHER);
             }
+
+            corePlayer.getScoreboard().setNewObjective(new InGameObjective());
         }
     }
 
