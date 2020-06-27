@@ -58,6 +58,7 @@ public class TrashWars extends GamePlugin {
         gameWorld = CoreSystem.getInstance().getWorldManager().getWorld(getGameConfig().parseConfig().getGameWorld());
 
         registerEvents(
+                new PlayerFishingListener(),
                 new GeneralPlayerListener(),
                 new PlayerJoinListener(),
                 new PlayerQuitListener(),
