@@ -93,17 +93,10 @@
         </resources>
     </build>
 
-    <distributionManagement>
-        <repository>
-            <id>mcone-systems</id>
-            <url>https://repo.onegaming.group/repository/mcone-systems/</url>
-        </repository>
-    </distributionManagement>
-
     <repositories>
         <repository>
-            <id>mcone-systems</id>
-            <url>https://repo.mcone.eu/repository/mcone-systems/</url>
+            <id>github</id>
+            <url>https://maven.pkg.github.com/mconeeu/artifacts</url>
         </repository>
     </repositories>
 
